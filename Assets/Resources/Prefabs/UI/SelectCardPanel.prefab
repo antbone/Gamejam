@@ -388,6 +388,8 @@ GameObject:
   - component: {fileID: 5576767834607392538}
   - component: {fileID: 2285085880553472320}
   - component: {fileID: 4029702078027104400}
+  - component: {fileID: 1273904572846298420}
+  - component: {fileID: 3789174638419245179}
   m_Layer: 5
   m_Name: card3
   m_TagString: Untagged
@@ -523,6 +525,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultData: SelectedCard
   key: 
+--- !u!114 &1273904572846298420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3601881071710700993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3854dffdfd97c2a4283a7b3f7d4d512c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3789174638419245179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3601881071710700993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983aac8604f88d34f898194a2bdabb18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  structInfo: {fileID: 11400000, guid: 0782bacaf45753d43bf4ebc1f4ff5f5b, type: 2}
 --- !u!1 &4213052814261812043
 GameObject:
   m_ObjectHideFlags: 0

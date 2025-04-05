@@ -508,6 +508,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 46.2, y: 0, z: 0}
+--- !u!1 &642028430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 642028431}
+  m_Layer: 0
+  m_Name: cardFolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &642028431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642028430}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 690944429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &690944428
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +575,7 @@ Transform:
   - {fileID: 2010811266}
   - {fileID: 175092363}
   - {fileID: 409086417}
+  - {fileID: 642028431}
   m_Father: {fileID: 876178020}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &690944430
@@ -564,8 +596,8 @@ MonoBehaviour:
   ru: {fileID: 175092363}
   cardCircleRadius: 1.5
   cardCircle: {fileID: 409086418}
-  cardCircleLight: {fileID: 0}
-  gradient: 0
+  cardCircleLight: {fileID: 1746677180}
+  gradient: 30
   height: 3.19
   moveSpeedMul: 0.1
 --- !u!1 &876178019
@@ -990,7 +1022,7 @@ Transform:
   m_GameObject: {fileID: 1746677179}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.00000007947286, z: -2.5980766}
   m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1008,10 +1040,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8396226, g: 0.18218225, b: 0.18218225, a: 1}
-  m_Intensity: 3.85
-  m_Range: 10
-  m_SpotAngle: 40.5
-  m_InnerSpotAngle: 21.80208
+  m_Intensity: 3.92
+  m_Range: 11.304118
+  m_SpotAngle: 60
+  m_InnerSpotAngle: 4.6
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
