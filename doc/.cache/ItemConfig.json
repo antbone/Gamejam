@@ -1,0 +1,587 @@
+{
+    "1": {
+        "id": 1,
+        "name": "终端链接器",
+        "weight": 10,
+        "altas": "",
+        "sprite": "",
+        "type": 3,
+        "autoRecycle": false
+    },
+    "2": {
+        "id": 2,
+        "name": "大钻头",
+        "weight": 20,
+        "altas": "",
+        "sprite": "",
+        "type": 3,
+        "autoRecycle": false
+    },
+    "3": {
+        "id": 3,
+        "name": "自动钻机",
+        "weight": 15,
+        "altas": "",
+        "sprite": "",
+        "type": 3,
+        "autoRecycle": false
+    },
+    "4": {
+        "id": 4,
+        "name": "火炬",
+        "weight": 2,
+        "altas": "map_stones",
+        "sprite": "map_stones_13",
+        "type": 2,
+        "autoRecycle": false
+    },
+    "5": {
+        "id": 5,
+        "name": "照明灯",
+        "weight": 5,
+        "altas": "map_stones",
+        "sprite": "map_stones_17",
+        "type": 2,
+        "autoRecycle": false
+    },
+    "6": {
+        "id": 6,
+        "name": "钻石火炬",
+        "weight": 5,
+        "altas": "map_stones",
+        "sprite": "map_stones_27",
+        "type": 2,
+        "autoRecycle": false
+    },
+    "7": {
+        "id": 7,
+        "name": "钻石照明灯",
+        "weight": 8,
+        "altas": "map_stones",
+        "sprite": "map_stones_28",
+        "type": 2,
+        "autoRecycle": false
+    },
+    "8": {
+        "id": 8,
+        "name": "烈焰火炬",
+        "weight": 8,
+        "altas": "map_stones",
+        "sprite": "map_stones_18",
+        "type": 2,
+        "autoRecycle": false
+    },
+    "9": {
+        "id": 9,
+        "name": "烈焰照明灯",
+        "weight": 12,
+        "altas": "map_stones",
+        "sprite": "map_stones_23",
+        "type": 2,
+        "autoRecycle": false
+    },
+    "10": {
+        "id": 10,
+        "name": "金矿石",
+        "weight": 5,
+        "altas": "map_stones",
+        "sprite": "map_stones_1",
+        "type": 1,
+        "autoRecycle": true
+    },
+    "11": {
+        "id": 11,
+        "name": "银矿石",
+        "weight": 3,
+        "altas": "map_stones",
+        "sprite": "map_stones_6",
+        "type": 1,
+        "autoRecycle": true
+    },
+    "12": {
+        "id": 12,
+        "name": "煤",
+        "weight": 1,
+        "altas": "map_stones",
+        "sprite": "map_stones_4",
+        "type": 1,
+        "autoRecycle": true
+    },
+    "13": {
+        "id": 13,
+        "name": "钻石",
+        "weight": 8,
+        "altas": "map_stones",
+        "sprite": "map_stones_50",
+        "type": 1,
+        "autoRecycle": true
+    },
+    "14": {
+        "id": 14,
+        "name": "血钻",
+        "weight": 8,
+        "altas": "map_stones",
+        "sprite": "map_stones_52",
+        "type": 1,
+        "autoRecycle": true
+    },
+    "15": {
+        "id": 15,
+        "name": "白钻",
+        "weight": 8,
+        "altas": "map_stones",
+        "sprite": "map_stones_54",
+        "type": 1,
+        "autoRecycle": true
+    },
+    "16": {
+        "id": 16,
+        "name": "翡翠钻",
+        "weight": 8,
+        "altas": "map_stones",
+        "sprite": "map_stones_56",
+        "type": 1,
+        "autoRecycle": true
+    },
+    "17": {
+        "id": 17,
+        "name": "欧珀石",
+        "weight": 10,
+        "altas": "AdvGems",
+        "sprite": "AdvGems_51",
+        "type": 1,
+        "autoRecycle": true
+    },
+    "18": {
+        "id": 18,
+        "name": "硫金石",
+        "weight": 15,
+        "altas": "AdvGems",
+        "sprite": "AdvGems_98",
+        "type": 1,
+        "autoRecycle": true
+    },
+    "19": {
+        "id": 19,
+        "name": "烈焰水晶",
+        "weight": 10,
+        "altas": "AdvGems",
+        "sprite": "AdvGems_76",
+        "type": 1,
+        "autoRecycle": true
+    },
+    "20": {
+        "id": 20,
+        "name": "黑曜石",
+        "weight": 20,
+        "altas": "AdvGems",
+        "sprite": "AdvGems_25",
+        "type": 1,
+        "autoRecycle": true
+    },
+    "21": {
+        "id": 21,
+        "name": "煤晶",
+        "weight": 5,
+        "altas": "minerals",
+        "sprite": "minerals_54",
+        "type": 1,
+        "autoRecycle": true
+    },
+    "22": {
+        "id": 22,
+        "name": "石镐",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_0",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "23": {
+        "id": 23,
+        "name": "石镐（初级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_1",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "24": {
+        "id": 24,
+        "name": "石镐（中级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_2",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "25": {
+        "id": 25,
+        "name": "石镐（高级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_3",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "26": {
+        "id": 26,
+        "name": "银镐（初级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_4",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "27": {
+        "id": 27,
+        "name": "银镐（中级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_5",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "28": {
+        "id": 28,
+        "name": "银镐（高级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_6",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "29": {
+        "id": 29,
+        "name": "金镐（初级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_7",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "30": {
+        "id": 30,
+        "name": "金镐（中级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_8",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "31": {
+        "id": 31,
+        "name": "金镐（高级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_9",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "32": {
+        "id": 32,
+        "name": "钻石镐（初级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_10",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "33": {
+        "id": 33,
+        "name": "钻石镐（中级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_11",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "34": {
+        "id": 34,
+        "name": "钻石镐（高级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_12",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "35": {
+        "id": 35,
+        "name": "橙晶镐（初级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_13",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "36": {
+        "id": 36,
+        "name": "橙晶镐（中级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_14",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "37": {
+        "id": 37,
+        "name": "橙晶镐（高级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_15",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "38": {
+        "id": 38,
+        "name": "紫红晶镐（初级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_16",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "39": {
+        "id": 39,
+        "name": "紫红晶镐（中级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_17",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "40": {
+        "id": 40,
+        "name": "紫红晶镐（高级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_18",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "41": {
+        "id": 41,
+        "name": "欧珀合金镐（初级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_19",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "42": {
+        "id": 42,
+        "name": "欧珀合金镐（中级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_20",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "43": {
+        "id": 43,
+        "name": "欧珀合金镐（高级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_21",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "44": {
+        "id": 44,
+        "name": "硫金镐（初级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_22",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "45": {
+        "id": 45,
+        "name": "硫金镐（中级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_23",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "46": {
+        "id": 46,
+        "name": "硫金镐（高级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_24",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "47": {
+        "id": 47,
+        "name": "黑曜钻镐（初级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_25",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "48": {
+        "id": 48,
+        "name": "黑曜钻镐（中级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_26",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "49": {
+        "id": 49,
+        "name": "黑曜钻镐（高级）",
+        "weight": 0,
+        "altas": "pickaxe",
+        "sprite": "pickaxe_27",
+        "type": 4,
+        "autoRecycle": false
+    },
+    "50": {
+        "id": 50,
+        "name": "量子背包",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_0",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "51": {
+        "id": 51,
+        "name": "量子背包I",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_1",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "52": {
+        "id": 52,
+        "name": "量子背包II",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_2",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "53": {
+        "id": 53,
+        "name": "量子背包III",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_3",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "54": {
+        "id": 54,
+        "name": "量子背包IV",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_4",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "55": {
+        "id": 55,
+        "name": "量子背包V",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_5",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "56": {
+        "id": 56,
+        "name": "量子背包VI",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_6",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "57": {
+        "id": 57,
+        "name": "量子背包VII",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_7",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "58": {
+        "id": 58,
+        "name": "量子背包VIII",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_8",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "59": {
+        "id": 59,
+        "name": "量子背包IX",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_9",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "60": {
+        "id": 60,
+        "name": "量子背包X",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_10",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "61": {
+        "id": 61,
+        "name": "量子背包XI",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_11",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "62": {
+        "id": 62,
+        "name": "量子背包XII",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_12",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "63": {
+        "id": 63,
+        "name": "量子背包XIII",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_13",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "64": {
+        "id": 64,
+        "name": "量子背包XIV",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_14",
+        "type": 5,
+        "autoRecycle": false
+    },
+    "65": {
+        "id": 65,
+        "name": "量子背包XV",
+        "weight": 0,
+        "altas": "backpack",
+        "sprite": "backpack_15",
+        "type": 5,
+        "autoRecycle": false
+    }
+}

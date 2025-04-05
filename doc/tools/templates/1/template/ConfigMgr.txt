@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using UnityEngine;
+
+namespace GameConfig
+{
+    public static class Config
+    {
+{0}
+        public static bool isInited = false;
+        public static void Init(string configPath)
+        {
+            if (isInited)
+                return;
+            isInited = true;
+            var textAsset = Resources.Load(configPath) as TextAsset;
+            var configText = ConfigUtility.DecodeBase64(textAsset.text);
+            Parse(configText);
+        }
+        
+        public static void Parse(string configText)
+        {
+            var sections = configText.Split("#"[0]);
+
+            string section;
+            string[] lines;
+
+{1}
+        }
+    }
+}

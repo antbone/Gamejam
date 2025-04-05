@@ -1,0 +1,220 @@
+{
+    "1": {
+        "id": 1,
+        "itemId": 50,
+        "compacity": 10,
+        "craftMatIds": [
+            -1
+        ],
+        "craftMatNums": [
+            -1
+        ],
+        "craftTime": -1
+    },
+    "2": {
+        "id": 2,
+        "itemId": 51,
+        "compacity": 15,
+        "craftMatIds": [
+            3
+        ],
+        "craftMatNums": [
+            40
+        ],
+        "craftTime": 300
+    },
+    "3": {
+        "id": 3,
+        "itemId": 52,
+        "compacity": 20,
+        "craftMatIds": [
+            1
+        ],
+        "craftMatNums": [
+            50
+        ],
+        "craftTime": 330
+    },
+    "4": {
+        "id": 4,
+        "itemId": 53,
+        "compacity": 25,
+        "craftMatIds": [
+            2,
+            1
+        ],
+        "craftMatNums": [
+            50,
+            60
+        ],
+        "craftTime": 360
+    },
+    "5": {
+        "id": 5,
+        "itemId": 54,
+        "compacity": 30,
+        "craftMatIds": [
+            4,
+            1
+        ],
+        "craftMatNums": [
+            30,
+            60
+        ],
+        "craftTime": 390
+    },
+    "6": {
+        "id": 6,
+        "itemId": 55,
+        "compacity": 35,
+        "craftMatIds": [
+            5,
+            1
+        ],
+        "craftMatNums": [
+            40,
+            60
+        ],
+        "craftTime": 420
+    },
+    "7": {
+        "id": 7,
+        "itemId": 56,
+        "compacity": 40,
+        "craftMatIds": [
+            6,
+            1
+        ],
+        "craftMatNums": [
+            50,
+            70
+        ],
+        "craftTime": 450
+    },
+    "8": {
+        "id": 8,
+        "itemId": 57,
+        "compacity": 45,
+        "craftMatIds": [
+            7,
+            1
+        ],
+        "craftMatNums": [
+            60,
+            70
+        ],
+        "craftTime": 480
+    },
+    "9": {
+        "id": 9,
+        "itemId": 58,
+        "compacity": 50,
+        "craftMatIds": [
+            11,
+            1
+        ],
+        "craftMatNums": [
+            50,
+            70
+        ],
+        "craftTime": 510
+    },
+    "10": {
+        "id": 10,
+        "itemId": 59,
+        "compacity": 55,
+        "craftMatIds": [
+            8,
+            1
+        ],
+        "craftMatNums": [
+            50,
+            70
+        ],
+        "craftTime": 540
+    },
+    "11": {
+        "id": 11,
+        "itemId": 60,
+        "compacity": 60,
+        "craftMatIds": [
+            9,
+            1
+        ],
+        "craftMatNums": [
+            60,
+            80
+        ],
+        "craftTime": 570
+    },
+    "12": {
+        "id": 12,
+        "itemId": 61,
+        "compacity": 65,
+        "craftMatIds": [
+            10,
+            1
+        ],
+        "craftMatNums": [
+            70,
+            80
+        ],
+        "craftTime": 600
+    },
+    "13": {
+        "id": 13,
+        "itemId": 62,
+        "compacity": 70,
+        "craftMatIds": [
+            28,
+            1
+        ],
+        "craftMatNums": [
+            50,
+            100
+        ],
+        "craftTime": 630
+    },
+    "14": {
+        "id": 14,
+        "itemId": 63,
+        "compacity": 75,
+        "craftMatIds": [
+            33,
+            1
+        ],
+        "craftMatNums": [
+            60,
+            120
+        ],
+        "craftTime": 660
+    },
+    "15": {
+        "id": 15,
+        "itemId": 64,
+        "compacity": 80,
+        "craftMatIds": [
+            32,
+            1
+        ],
+        "craftMatNums": [
+            60,
+            150
+        ],
+        "craftTime": 690
+    },
+    "16": {
+        "id": 16,
+        "itemId": 65,
+        "compacity": 85,
+        "craftMatIds": [
+            31,
+            1
+        ],
+        "craftMatNums": [
+            50,
+            150
+        ],
+        "craftTime": 720
+    }
+}

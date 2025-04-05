@@ -1,0 +1,34 @@
+{
+    "ItemType": [
+        {
+            "key": "None",
+            "value": 0,
+            "annotation": "无"
+        },
+        {
+            "key": "Ore",
+            "value": 1,
+            "annotation": "矿物 "
+        },
+        {
+            "key": "Torch",
+            "value": 2,
+            "annotation": "火炬"
+        },
+        {
+            "key": "Device",
+            "value": 3,
+            "annotation": "设备"
+        },
+        {
+            "key": "Pickaxe",
+            "value": 4,
+            "annotation": "镐"
+        },
+        {
+            "key": "Backpack",
+            "value": 5,
+            "annotation": "背包"
+        }
+    ]
+}

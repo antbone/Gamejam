@@ -1,0 +1,30 @@
+{
+  "excel_url": "../docs",
+  "excel_override_enabled": true,
+  "excel_override_warning_enabled": true,
+  "excel_extend_max_layer": 100,
+  "export_suffix": "Config",
+  "export_item_suffix": "Item",
+  "export_collection_suffix": "Map",
+  "export_data_splitor_random_enabled": false,
+  "export_data_splitor": "_D3A_",
+  "origin_export_url": "../.cache/",
+  "origin_json_url": "../.cache/config.min.json",
+  "origin_remark_url": "../.cache/.remarks.json",
+  "origin_enum_url": "../.cache/.enums.json",
+  "origin_extends_url": "../.cache/.extends.json",
+  "incrementalPublish": true,
+  "exports": [
+    {
+      "id": 1,
+      "enabled": true,
+      "code_language": "cs",
+      "script_suffix": "cs",
+      "template_name": "",
+      "force_make_dir": true,
+      "export_url": "../../Assets/Resources/configs/Config.txt",
+      "export_script_url": "../../Assets/Scripts/Gen/Config/",
+      "export_config_manager_name": "Config"
+    }
+  ]
+}

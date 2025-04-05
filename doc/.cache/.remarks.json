@@ -1,0 +1,544 @@
+{
+    "ItemType": {
+        "filePath": "..\\docs\\物品配置.xlsx",
+        "fileMD5": "a7fce0547c3ed27d3c7e626e21b00115",
+        "generate": [
+            1,
+            2
+        ],
+        "sheetType": "Enum"
+    },
+    "CenterConfig": {
+        "fields": {
+            "lv": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "等级"
+            },
+            "light1": {
+                "type": "float",
+                "generate": [
+                    1
+                ],
+                "annotation": "日曜区光强"
+            },
+            "light2": {
+                "type": "float",
+                "generate": [
+                    1
+                ],
+                "annotation": "日曦区光强"
+            },
+            "light3": {
+                "type": "float",
+                "generate": [
+                    1
+                ],
+                "annotation": "日晖区光强"
+            },
+            "generate": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "每3秒产出日芒"
+            },
+            "upgradeCost": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "升级所需日芒"
+            },
+            "maxLife": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "最大生命值"
+            }
+        },
+        "filePath": "..\\docs\\核心配置.xlsx",
+        "fileMD5": "a67caba92ccad9b08dfb6360383d4b59",
+        "sheetType": "Horizontal",
+        "isSingleMainKey": true,
+        "mainKeySubs": [
+            0
+        ],
+        "mainKeyNames": [
+            "lv"
+        ]
+    },
+    "StoneConfig": {
+        "fields": {
+            "id": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "ID"
+            },
+            "name": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "名称"
+            },
+            "hp": {
+                "type": "float",
+                "generate": [
+                    1
+                ],
+                "annotation": "挖掘血量"
+            },
+            "dropId": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "掉落物id"
+            },
+            "dropNum": {
+                "type": "float",
+                "generate": [
+                    1
+                ],
+                "annotation": "掉落物数量"
+            },
+            "stoneAltas": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "所在图集名称"
+            },
+            "stoneSprite": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "图集中的精灵名称"
+            }
+        },
+        "filePath": "..\\docs\\物品配置.xlsx",
+        "fileMD5": "a7fce0547c3ed27d3c7e626e21b00115",
+        "sheetType": "Horizontal",
+        "isSingleMainKey": true,
+        "mainKeySubs": [
+            0
+        ],
+        "mainKeyNames": [
+            "id"
+        ]
+    },
+    "ResConfig": {
+        "fields": {
+            "id": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "ID"
+            },
+            "name": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "名称"
+            },
+            "altas": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "图集名称"
+            },
+            "sprite": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "图片名称"
+            },
+            "itemId": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "对应物品id\r\n（-1为没有）"
+            },
+            "isShare": {
+                "type": "bool",
+                "generate": [
+                    1
+                ],
+                "annotation": "是否共享储量"
+            },
+            "isProp": {
+                "type": "bool",
+                "generate": [
+                    1
+                ],
+                "annotation": "是否是道具"
+            }
+        },
+        "filePath": "..\\docs\\物品配置.xlsx",
+        "fileMD5": "a7fce0547c3ed27d3c7e626e21b00115",
+        "sheetType": "Horizontal",
+        "isSingleMainKey": true,
+        "mainKeySubs": [
+            0
+        ],
+        "mainKeyNames": [
+            "id"
+        ]
+    },
+    "PickaxeConfig": {
+        "fields": {
+            "id": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "ID"
+            },
+            "itemId": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "物品id"
+            },
+            "damage": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "镐力"
+            },
+            "speed": {
+                "type": "float",
+                "generate": [
+                    1
+                ],
+                "annotation": "镐速"
+            },
+            "level": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "挖掘等级"
+            },
+            "craftMatIds": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "制作材料id"
+            },
+            "craftMatNums": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "制作材料数量"
+            },
+            "craftTime": {
+                "type": "float",
+                "generate": [
+                    1
+                ],
+                "annotation": "制作时长"
+            }
+        },
+        "filePath": "..\\docs\\物品配置.xlsx",
+        "fileMD5": "a7fce0547c3ed27d3c7e626e21b00115",
+        "sheetType": "Horizontal",
+        "isSingleMainKey": true,
+        "mainKeySubs": [
+            0
+        ],
+        "mainKeyNames": [
+            "id"
+        ]
+    },
+    "BackpackConfig": {
+        "fields": {
+            "id": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "ID"
+            },
+            "itemId": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "物品id"
+            },
+            "compacity": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "容量"
+            },
+            "craftMatIds": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "制作材料id"
+            },
+            "craftMatNums": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "制作材料数量"
+            },
+            "craftTime": {
+                "type": "float",
+                "generate": [
+                    1
+                ],
+                "annotation": "制作时长"
+            }
+        },
+        "filePath": "..\\docs\\物品配置.xlsx",
+        "fileMD5": "a7fce0547c3ed27d3c7e626e21b00115",
+        "sheetType": "Horizontal",
+        "isSingleMainKey": true,
+        "mainKeySubs": [
+            0
+        ],
+        "mainKeyNames": [
+            "id"
+        ]
+    },
+    "CraftConfig": {
+        "fields": {
+            "id": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "ID"
+            },
+            "matIds": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "原料id列表"
+            },
+            "matNums": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "原料数量列表"
+            },
+            "targetId": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "目标id"
+            },
+            "time": {
+                "type": "float",
+                "generate": [
+                    1
+                ],
+                "annotation": "制作时长"
+            },
+            "craftLimit": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "生产上限"
+            },
+            "storeLimit": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "存储上限"
+            },
+            "isAdvance": {
+                "type": "bool",
+                "generate": [
+                    1
+                ],
+                "annotation": "是否是高级生产"
+            }
+        },
+        "filePath": "..\\docs\\物品配置.xlsx",
+        "fileMD5": "a7fce0547c3ed27d3c7e626e21b00115",
+        "sheetType": "Horizontal",
+        "isSingleMainKey": true,
+        "mainKeySubs": [
+            0
+        ],
+        "mainKeyNames": [
+            "id"
+        ]
+    },
+    "TerminalConfig": {
+        "fields": {
+            "id": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "等级ID"
+            },
+            "extend": {
+                "type": "float",
+                "generate": [
+                    1
+                ],
+                "annotation": "效率继承"
+            },
+            "matIds": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "原料id列表"
+            },
+            "matNums": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "原料数量列表"
+            }
+        },
+        "filePath": "..\\docs\\物品配置.xlsx",
+        "fileMD5": "a7fce0547c3ed27d3c7e626e21b00115",
+        "sheetType": "Horizontal",
+        "isSingleMainKey": true,
+        "mainKeySubs": [
+            0
+        ],
+        "mainKeyNames": [
+            "id"
+        ]
+    },
+    "TorchConfig": {
+        "fields": {
+            "id": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "ID"
+            },
+            "itemId": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "物品id"
+            },
+            "intensity": {
+                "type": "float",
+                "generate": [
+                    1
+                ],
+                "annotation": "光强"
+            },
+            "resistance": {
+                "type": "float",
+                "generate": [
+                    1
+                ],
+                "annotation": "湿度抗性"
+            }
+        },
+        "filePath": "..\\docs\\物品配置.xlsx",
+        "fileMD5": "a7fce0547c3ed27d3c7e626e21b00115",
+        "sheetType": "Horizontal",
+        "isSingleMainKey": true,
+        "mainKeySubs": [
+            0
+        ],
+        "mainKeyNames": [
+            "id"
+        ]
+    },
+    "ItemConfig": {
+        "fields": {
+            "id": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "ID"
+            },
+            "name": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "名称"
+            },
+            "weight": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "负重"
+            },
+            "altas": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "所在图集名称"
+            },
+            "sprite": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "图集中的精灵名称"
+            },
+            "type": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "类型",
+                "enum": "ItemType"
+            },
+            "autoRecycle": {
+                "type": "bool",
+                "generate": [
+                    1
+                ],
+                "annotation": "是否自动回收"
+            }
+        },
+        "filePath": "..\\docs\\物品配置.xlsx",
+        "fileMD5": "a7fce0547c3ed27d3c7e626e21b00115",
+        "sheetType": "Horizontal",
+        "isSingleMainKey": true,
+        "mainKeySubs": [
+            0
+        ],
+        "mainKeyNames": [
+            "id"
+        ]
+    }
+}

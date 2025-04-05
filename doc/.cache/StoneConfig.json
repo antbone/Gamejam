@@ -1,0 +1,362 @@
+{
+    "1": {
+        "id": 1,
+        "name": "金矿",
+        "hp": 18,
+        "dropId": 10,
+        "dropNum": 1.2,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_9"
+    },
+    "2": {
+        "id": 2,
+        "name": "小金矿",
+        "hp": 13,
+        "dropId": 10,
+        "dropNum": 0.4,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_16"
+    },
+    "3": {
+        "id": 3,
+        "name": "巨大金矿",
+        "hp": 5000,
+        "dropId": 10,
+        "dropNum": 300,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_12"
+    },
+    "4": {
+        "id": 4,
+        "name": "银矿",
+        "hp": 18,
+        "dropId": 11,
+        "dropNum": 1.2,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_19"
+    },
+    "5": {
+        "id": 5,
+        "name": "小银矿",
+        "hp": 13,
+        "dropId": 11,
+        "dropNum": 0.4,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_26"
+    },
+    "6": {
+        "id": 6,
+        "name": "巨大银矿",
+        "hp": 5000,
+        "dropId": 11,
+        "dropNum": 300,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_22"
+    },
+    "7": {
+        "id": 7,
+        "name": "煤矿",
+        "hp": 15,
+        "dropId": 12,
+        "dropNum": 2,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_29"
+    },
+    "8": {
+        "id": 8,
+        "name": "小煤矿",
+        "hp": 10,
+        "dropId": 12,
+        "dropNum": 1.4,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_36"
+    },
+    "9": {
+        "id": 9,
+        "name": "巨大煤矿",
+        "hp": 3000,
+        "dropId": 12,
+        "dropNum": 500,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_32"
+    },
+    "10": {
+        "id": 10,
+        "name": "钻石矿",
+        "hp": 30,
+        "dropId": 13,
+        "dropNum": 1,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_59"
+    },
+    "11": {
+        "id": 11,
+        "name": "小钻石矿",
+        "hp": 15,
+        "dropId": 13,
+        "dropNum": 0.2,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_68"
+    },
+    "12": {
+        "id": 12,
+        "name": "钻石碎晶",
+        "hp": 10,
+        "dropId": 13,
+        "dropNum": 0.6,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_57"
+    },
+    "13": {
+        "id": 13,
+        "name": "钻石小碎晶",
+        "hp": 5,
+        "dropId": 13,
+        "dropNum": 0.1,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_64"
+    },
+    "14": {
+        "id": 14,
+        "name": "巨大钻石矿",
+        "hp": 10000,
+        "dropId": 13,
+        "dropNum": 400,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_62"
+    },
+    "15": {
+        "id": 15,
+        "name": "血钻矿",
+        "hp": 30,
+        "dropId": 14,
+        "dropNum": 1,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_87"
+    },
+    "16": {
+        "id": 16,
+        "name": "小血钻矿",
+        "hp": 15,
+        "dropId": 14,
+        "dropNum": 0.2,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_96"
+    },
+    "17": {
+        "id": 17,
+        "name": "血钻碎晶",
+        "hp": 10,
+        "dropId": 14,
+        "dropNum": 0.6,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_93"
+    },
+    "18": {
+        "id": 18,
+        "name": "血钻小碎晶",
+        "hp": 5,
+        "dropId": 14,
+        "dropNum": 0.1,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_86"
+    },
+    "19": {
+        "id": 19,
+        "name": "巨大血钻矿",
+        "hp": 10000,
+        "dropId": 14,
+        "dropNum": 400,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_90"
+    },
+    "20": {
+        "id": 20,
+        "name": "白钻矿",
+        "hp": 30,
+        "dropId": 15,
+        "dropNum": 1,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_73"
+    },
+    "21": {
+        "id": 21,
+        "name": "小白钻矿",
+        "hp": 15,
+        "dropId": 15,
+        "dropNum": 0.2,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_82"
+    },
+    "22": {
+        "id": 22,
+        "name": "白钻碎晶",
+        "hp": 10,
+        "dropId": 15,
+        "dropNum": 0.6,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_71"
+    },
+    "23": {
+        "id": 23,
+        "name": "白钻小碎晶",
+        "hp": 5,
+        "dropId": 15,
+        "dropNum": 0.1,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_72"
+    },
+    "24": {
+        "id": 24,
+        "name": "巨大白钻矿",
+        "hp": 10000,
+        "dropId": 15,
+        "dropNum": 400,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_76"
+    },
+    "25": {
+        "id": 25,
+        "name": "翡翠钻矿",
+        "hp": 30,
+        "dropId": 16,
+        "dropNum": 1,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_103"
+    },
+    "26": {
+        "id": 26,
+        "name": "小翡翠钻矿",
+        "hp": 15,
+        "dropId": 16,
+        "dropNum": 0.2,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_110"
+    },
+    "27": {
+        "id": 27,
+        "name": "翡翠钻碎晶",
+        "hp": 10,
+        "dropId": 16,
+        "dropNum": 0.6,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_107"
+    },
+    "28": {
+        "id": 28,
+        "name": "翡翠钻小碎晶",
+        "hp": 5,
+        "dropId": 16,
+        "dropNum": 0.1,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_106"
+    },
+    "29": {
+        "id": 29,
+        "name": "巨大翡翠钻矿",
+        "hp": 10000,
+        "dropId": 16,
+        "dropNum": 400,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_104"
+    },
+    "30": {
+        "id": 30,
+        "name": "石块",
+        "hp": 15,
+        "dropId": -1,
+        "dropNum": 0,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_40"
+    },
+    "31": {
+        "id": 31,
+        "name": "小石块",
+        "hp": 10,
+        "dropId": -1,
+        "dropNum": 0,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_46"
+    },
+    "32": {
+        "id": 32,
+        "name": "巨大岩石",
+        "hp": 3000,
+        "dropId": -1,
+        "dropNum": 0,
+        "stoneAltas": "map_stones",
+        "stoneSprite": "map_stones_42"
+    },
+    "33": {
+        "id": 33,
+        "name": "欧珀矿",
+        "hp": 100,
+        "dropId": 17,
+        "dropNum": 0.5,
+        "stoneAltas": "AdvGems",
+        "stoneSprite": "AdvGems_72"
+    },
+    "34": {
+        "id": 34,
+        "name": "欧珀晶簇",
+        "hp": 200,
+        "dropId": 17,
+        "dropNum": 1.5,
+        "stoneAltas": "AdvGems",
+        "stoneSprite": "AdvGems_2"
+    },
+    "35": {
+        "id": 35,
+        "name": "煤晶晶簇",
+        "hp": 60,
+        "dropId": 21,
+        "dropNum": 2.2,
+        "stoneAltas": "AdvGems",
+        "stoneSprite": "AdvGems_66"
+    },
+    "36": {
+        "id": 36,
+        "name": "熔岩石",
+        "hp": 50,
+        "dropId": 19,
+        "dropNum": 0.7,
+        "stoneAltas": "AdvGems",
+        "stoneSprite": "AdvGems_26"
+    },
+    "37": {
+        "id": 37,
+        "name": "岩浆矿",
+        "hp": 70,
+        "dropId": 19,
+        "dropNum": 1.5,
+        "stoneAltas": "AdvGems",
+        "stoneSprite": "AdvGems_58"
+    },
+    "38": {
+        "id": 38,
+        "name": "烈焰晶簇",
+        "hp": 150,
+        "dropId": 19,
+        "dropNum": 2.5,
+        "stoneAltas": "AdvGems",
+        "stoneSprite": "AdvGems_39"
+    },
+    "39": {
+        "id": 39,
+        "name": "硫金矿",
+        "hp": 300,
+        "dropId": 18,
+        "dropNum": 1.1,
+        "stoneAltas": "AdvGems",
+        "stoneSprite": "AdvGems_44"
+    },
+    "40": {
+        "id": 40,
+        "name": "黑曜晶簇",
+        "hp": 500,
+        "dropId": 20,
+        "dropNum": 1.5,
+        "stoneAltas": "AdvGems",
+        "stoneSprite": "AdvGems_34"
+    }
+}
