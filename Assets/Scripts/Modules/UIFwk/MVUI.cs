@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Collections;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -20,6 +21,19 @@ public class MVUI : MonoBehaviour
     private bool isEnter = false;
     public bool isEnable = false;
     private bool isReallyEnter = false;
+    private Dictionary<string, Coroutine> waitCoroutines = new Dictionary<string, Coroutine>();
+
+    private class WaitInfo
+    {
+        public ECListener listener;
+        public Action<bool> callback;
+        public Coroutine timeoutCoroutine;
+        public string message;
+        public float timeout;
+    }
+
+    private Dictionary<string, List<WaitInfo>> messageWaiters = new Dictionary<string, List<WaitInfo>>();
+
     void OnEnable()
     {
         isEnable = true;
@@ -39,6 +53,99 @@ public class MVUI : MonoBehaviour
     {
         this.structs.ForEach(e => e.OnReceiveMsg(message));
         children.ForEach(e => e.SendVMsg(message));
+    }
+    public void WaitMessage(string message, Action<bool> callback, float timeout = -1)
+    {
+        if (!messageWaiters.ContainsKey(message))
+        {
+            messageWaiters[message] = new List<WaitInfo>();
+        }
+
+        var waitInfo = new WaitInfo
+        {
+            callback = callback,
+            message = message,
+            timeout = timeout
+        };
+
+        void OnMessage(object args)
+        {
+            // 移除这个等待器
+            if (messageWaiters.ContainsKey(message))
+            {
+                messageWaiters[message].Remove(waitInfo);
+                if (messageWaiters[message].Count == 0)
+                {
+                    messageWaiters.Remove(message);
+                }
+            }
+
+            // 如果有超时协程，停止它
+            if (waitInfo.timeoutCoroutine != null)
+            {
+                StopCoroutine(waitInfo.timeoutCoroutine);
+                waitInfo.timeoutCoroutine = null;
+            }
+
+            // 取消事件监听
+            this.Off(message, OnMessage);
+
+            // 触发回调
+            callback?.Invoke(true);
+        }
+
+        waitInfo.listener = OnMessage;
+        this.On(message, OnMessage);
+
+        // 如果设置了超时
+        if (timeout > 0)
+        {
+            waitInfo.timeoutCoroutine = StartCoroutine(WaitTimeout(waitInfo));
+        }
+
+        messageWaiters[message].Add(waitInfo);
+    }
+
+    private IEnumerator WaitTimeout(WaitInfo waitInfo)
+    {
+        yield return new WaitForSeconds(waitInfo.timeout);
+
+        // 移除这个等待器
+        if (messageWaiters.ContainsKey(waitInfo.message))
+        {
+            messageWaiters[waitInfo.message].Remove(waitInfo);
+            if (messageWaiters[waitInfo.message].Count == 0)
+            {
+                messageWaiters.Remove(waitInfo.message);
+            }
+        }
+
+        // 取消事件监听
+        this.Off(waitInfo.message, waitInfo.listener);
+
+        // 触发超时回调
+        waitInfo.callback?.Invoke(false);
+        waitInfo.timeoutCoroutine = null;
+    }
+
+    void OnDestroy()
+    {
+        // 清理所有等待中的协程和监听器
+        foreach (var waiters in messageWaiters.Values)
+        {
+            foreach (var waiter in waiters)
+            {
+                if (waiter.timeoutCoroutine != null)
+                {
+                    StopCoroutine(waiter.timeoutCoroutine);
+                }
+                if (waiter.listener != null)
+                {
+                    this.Off(waiter.message, waiter.listener);
+                }
+            }
+        }
+        messageWaiters.Clear();
     }
 
     private void Init()

@@ -16,7 +16,7 @@ public class MVTriggerBase<T> : MonoBehaviour, IMVTrigger
     public string key;
     public string Key => key;
     STField<MonoBehaviour, MVUI> _ui = new(e => e.transform.RecurFind(f => f.parent, f => f.GetComponent<MVUI>()));
-    MVUI ui => _ui.Get(this);
+    protected MVUI ui => _ui.Get(this);
     public Type type => GetType();
     public void ResetData(T resetData)
     {

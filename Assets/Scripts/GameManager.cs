@@ -9,14 +9,18 @@ public class GameManager : Singleton<GameManager>
     public void Init(Transform root)
     {
         this.root = root;
-
     }
+    public Table table;
+
     public void OnStart()
     {
-        // VController.Ins.ShowST("HUD", VParams.Relative(ERelativeType.Full));
+        // 启动游戏流程
+        GameFlowManager.Instance.StartGame();
     }
+
     public void OnUpdate()
     {
-        VController.Ins.UpdateUI();
+        // 更新游戏流程
+        GameFlowManager.Instance.Update();
     }
 }
