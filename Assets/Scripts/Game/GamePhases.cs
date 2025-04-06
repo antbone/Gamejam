@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public abstract class BaseGamePhase : IGamePhase
@@ -118,8 +121,25 @@ public class ResultPhase : BaseGamePhase
 {
     public override void Enter()
     {
-        Debug.Log("进入结果判定阶段");
-        // 判定是否达成目标
+        List<CardController> cards = GameManager.Ins.table.allSpawnedCards.Select(c => c.GetComponent<CardController>()).ToList();
+        for (int i = 0; i < cards.Count; i++)
+        {
+            CardPhysicsController physicsController = cards[i].GetComponent<CardPhysicsController>();
+            switch (physicsController.currentState)
+            {
+                case CardPhysicsController.CardState.Normal:
+                    cards[i].OnNormalEffect();
+                    break;
+                case CardPhysicsController.CardState.Linked:
+                    cards[i].OnActiveEffect();
+                    break;
+                case CardPhysicsController.CardState.Covered:
+                    cards[i].OnCoveredEffect();
+                    break;
+            }
+        }
+        // 回收所有还存留的卡牌
+        GameManager.Ins.table.RecycleAllCards();
     }
 
     public override void Update()
