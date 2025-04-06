@@ -1,4 +1,5 @@
 using UnityEngine;
+using GameConfig;
 
 public abstract class BaseGamePhase : IGamePhase
 {
@@ -24,16 +25,30 @@ public class CardSelectionPhase : BaseGamePhase
 {
     public override void Enter()
     {
+        CardSelectModel.Ins.card1.D = CardProbability();
+        CardSelectModel.Ins.card2.D = CardProbability();
+        CardSelectModel.Ins.card3.D = CardProbability();
+        Debug.Log(CardSelectModel.Ins.card1);
+
         int id = VController.Ins.ShowST("SelectCardPanel");
         VPanel panel = VController.Ins.GetSTUI(id);
         panel.UI.WaitMessage("SelectedCard", (success) =>
         {
             if (success)
             {
+                CardInventory.Ins.cards.Add(11);
                 GameFlowManager.Instance.TransitionTo(GameState.Game);
                 VController.Ins.HideST(id);
             }
         });
+    }
+
+    private int CardProbability()
+    {
+        int probability = Random.Range(10001, 10004);
+
+
+        return probability;
     }
 
 }
@@ -87,6 +102,14 @@ public class GamePhase : BaseGamePhase
         {
             table.StopCardCircleMovement();
         }
+    }
+
+    private float CardProbability()
+    {
+        float probability = 0.0f;
+
+
+        return probability;
     }
 
     private void ProcessCardEffect()

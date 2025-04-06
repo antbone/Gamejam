@@ -31,7 +31,8 @@ public class UIDemoStart : MonoBehaviour
         }, s =>
         {
             //改变字段的值，就可以驱动UI的变化，但注意赋值的是字段中的D属性，例如UIDemoModel.Ins.dynamicId.D = 1;而不是UIDemoModel.Ins.dynamicId = 1;
-            UIDemoModel.Ins.dynamicId.D = UIDemoModel.Ins.backpacks.list.GetRandom();
+            //UIDemoModel.Ins.dynamicId.D = UIDemoModel.Ins.backpacks.list.GetRandom();
+            UIDemoModel.Ins.dynamicId.D = 2;
             UIDemoModel.Ins.dynamicText.D = new List<string>(){
                 "原神，启动!",
                 "星穹铁道！启动！",

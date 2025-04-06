@@ -21,7 +21,11 @@ public class GameFlowManager : IGameFlow
 
     public bool IsGameOver { get; private set; }
     public int CurrentRound { get; private set; }
+    public int CurrentStage { get; private set; }
     private const int MAX_ROUNDS = 5;
+    private const int MAX_STAGE = 4;
+
+    public int CardNumbers = 10;
 
     private GameFlowManager()
     {
@@ -41,6 +45,7 @@ public class GameFlowManager : IGameFlow
 
     public void StartGame()
     {
+        //CurrentStage = 1;
         CurrentRound = 1;
         IsGameOver = false;
         TransitionTo(GameState.Story);
@@ -72,6 +77,7 @@ public class GameFlowManager : IGameFlow
             if (CurrentRound >= MAX_ROUNDS)
             {
                 EndGame();
+                //CurrentStage++;
             }
             else
             {
