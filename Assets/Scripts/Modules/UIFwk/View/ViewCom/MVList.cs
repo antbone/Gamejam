@@ -73,6 +73,7 @@ public class MVList : MView<List<object>>, IPointerDownHandler, IListView
     private int col = 1;
     private void Awake()
     {
+
         scrollRect.Get(this).onValueChanged.AddListener((v) =>
         {
             this.ScrollCheck();
