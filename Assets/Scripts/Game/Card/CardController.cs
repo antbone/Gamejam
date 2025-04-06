@@ -5,29 +5,19 @@ using UnityEngine;
 
 public class CardController : MonoBehaviour
 {
-    public CardData cardData;
-    public Sprite cardImage;
-    // public TextMeshProUGUI reward;
-
-    private void Start()
+    //正常启动效果
+    public void OnNormalEffect()
     {
 
     }
-
-    public void InitializeCardUI()
-    {
-        cardImage = cardData.cardImage;
-        // reward.text = cardData.reward.ToString();
-    }
-
-    public void SelectCardFromOneOfThree()
+    //被覆盖效果
+    public void OnCoveredEffect()
     {
 
     }
+    //激活联动效果
+    public void OnActiveEffect()
+    {
 
-    /*    IEnumerator SelectCardRoutine()
-        {
-
-        }*/
-
+    }
 }

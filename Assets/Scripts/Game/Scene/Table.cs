@@ -32,7 +32,8 @@ public class Table : MonoBehaviour
     private const float TRANSITION_DELAY = 3.0f;
     private bool allCardsSpawned = false; // 标记是否所有卡牌都已生成
     private bool allCardsSettled = false; // 标记是否所有卡牌都已稳定
-    private List<CardPhysicsController> allSpawnedCards = new List<CardPhysicsController>(); // 记录所有释放的卡牌
+    [HideInInspector]
+    public List<CardPhysicsController> allSpawnedCards = new List<CardPhysicsController>(); // 记录所有释放的卡牌
     private List<CardPhysicsController> cardsBelowDeadHeight = new List<CardPhysicsController>(); // 记录掉出deadHeight的卡牌
 
     void OnValidate()
@@ -195,8 +196,6 @@ public class Table : MonoBehaviour
         // 使用TM.SetTimer替代协程
         TM.SetTimer(this.Hash("TransitionToResult"), TRANSITION_DELAY, null, (s) =>
         {
-            // 回收所有还存留的卡牌
-            RecycleAllCards();
             // 进入结果阶段
             GameFlowManager.Instance.TransitionTo(GameState.Result);
         });
@@ -221,7 +220,7 @@ public class Table : MonoBehaviour
         // 使用对象池创建卡牌，初始旋转角度在(90, 0, 0)附近
         Quaternion baseRotation = Quaternion.Euler(90, 0, 0);
         Quaternion randomRotation = Quaternion.Euler(
-            Random.Range(90f-75f, 95f+75f),  // X轴在90度附近±5度
+            Random.Range(90f - 75f, 90f + 75f),  // X轴在90度附近±5度
             Random.Range(-75f, 75f), // Y轴在0度附近±10度
             Random.Range(-75f, 75f)  // Z轴在0度附近±10度
         );
@@ -276,18 +275,18 @@ public class Table : MonoBehaviour
         card.transform.rotation = baseRotation * randomRotation;
 
         // 使用TM.SetTimer替代协程，延迟一帧应用力
-        TM.SetTimer(this.Hash("ApplyForces"), 0.0f, null, (s) =>
-        {
-            // 只添加水平方向的力
-            rb.AddForce(horizontalDirection * INITIAL_FORCE * 0.3f, ForceMode.Impulse);
+        // CT.DelayCmd(() =>
+        // {
+        //     // 只添加水平方向的力
+        //     rb.AddForce(horizontalDirection * INITIAL_FORCE * 0.3f, ForceMode.Impulse);
+        //     // 添加较小的随机旋转，主要保持水平状态
+        //     rb.AddTorque(new Vector3(
+        //         Random.Range(-torque, torque) * 0.1f, // 较小的X轴旋转，保持接近90度
+        //         Random.Range(-torque, torque) * 0.2f, // 适度的Y轴旋转
+        //         Random.Range(-torque, torque) * 0.2f  // 适度的Z轴旋转
+        //     ), ForceMode.Impulse);
 
-            // 添加较小的随机旋转，主要保持水平状态
-            rb.AddTorque(new Vector3(
-                Random.Range(-torque, torque) * 0.1f, // 较小的X轴旋转，保持接近90度
-                Random.Range(-torque, torque) * 0.2f, // 适度的Y轴旋转
-                Random.Range(-torque, torque) * 0.2f  // 适度的Z轴旋转
-            ), ForceMode.Impulse);
-        });
+        // });
 
         // 增加已生成卡牌计数
         cardsSpawned++;
@@ -431,18 +430,19 @@ public class Table : MonoBehaviour
 
             // 检查是否有其他卡牌在这个点的上方
             bool hasCardAbove = false;
-            foreach (var otherCard in settledCards)
+            foreach (var otherCard in allSpawnedCards)
             {
                 if (otherCard == card) continue;
 
                 // 获取其他卡牌的边界
-                Bounds otherBounds = GetCardBounds(otherCard);
+                Rect otherBounds = GetCardBounds(otherCard);
 
                 // 检查点是否在其他卡牌的XZ投影范围内
                 if (IsPointInBoundsXZ(pointPos, otherBounds))
                 {
                     // 检查点的高度是否低于其他卡牌
-                    if (point.position.y < otherBounds.max.y)
+                    // 使用卡牌的transform.position.y作为高度参考
+                    if (point.position.y < otherCard.transform.position.y)
                     {
                         hasCardAbove = true;
                         break;
@@ -466,15 +466,15 @@ public class Table : MonoBehaviour
         if (card == null) return false;
 
         // 获取卡牌的边界
-        Bounds cardBounds = GetCardBounds(card);
+        Rect cardBounds = GetCardBounds(card);
 
         // 检查是否与其他卡牌在XZ平面上有重叠
-        foreach (var otherCard in settledCards)
+        foreach (var otherCard in allSpawnedCards)
         {
             if (otherCard == card) continue;
 
             // 获取其他卡牌的边界
-            Bounds otherBounds = GetCardBounds(otherCard);
+            Rect otherBounds = GetCardBounds(otherCard);
 
             // 检查两个卡牌在XZ平面上是否有重叠
             if (DoBoundsOverlapXZ(cardBounds, otherBounds))
@@ -498,34 +498,60 @@ public class Table : MonoBehaviour
         return false;
     }
 
-    // 获取卡牌的边界
-    private Bounds GetCardBounds(CardPhysicsController card)
+    // 获取卡牌在XZ平面上的矩形范围
+    private Rect GetCardBounds(CardPhysicsController card)
     {
-        if (card == null) return new Bounds();
+        if (card == null) return new Rect();
 
-        // 获取卡牌的碰撞器
-        Collider collider = card.GetComponent<Collider>();
-        if (collider != null)
+        // 获取卡牌的9个关键点
+        Transform[] keyPoints = GetCardKeyPoints(card);
+        if (keyPoints == null || keyPoints.Length != 9)
         {
-            return collider.bounds;
+            // 如果没有关键点，使用卡牌的碰撞器或默认尺寸
+            Collider collider = card.GetComponent<Collider>();
+            if (collider != null)
+            {
+                Bounds bounds = collider.bounds;
+                return new Rect(bounds.min.x, bounds.min.z, bounds.size.x, bounds.size.z);
+            }
+            else
+            {
+                // 使用默认尺寸
+                Vector3 position = card.transform.position;
+                return new Rect(position.x - 0.3f, position.z - 0.45f, 0.6f, 0.9f);
+            }
         }
 
-        // 如果没有碰撞器，使用卡牌的尺寸估计边界
-        return new Bounds(card.transform.position, new Vector3(0.6f, 0.9f, 0.05f));
+        // 计算关键点在XZ平面上的最小和最大坐标
+        float minX = float.MaxValue;
+        float maxX = float.MinValue;
+        float minZ = float.MaxValue;
+        float maxZ = float.MinValue;
+
+        foreach (Transform point in keyPoints)
+        {
+            minX = Mathf.Min(minX, point.position.x);
+            maxX = Mathf.Max(maxX, point.position.x);
+            minZ = Mathf.Min(minZ, point.position.z);
+            maxZ = Mathf.Max(maxZ, point.position.z);
+        }
+
+        // 返回矩形范围
+        return new Rect(minX, minZ, maxX - minX, maxZ - minZ);
     }
 
     // 检查点是否在边界的XZ投影范围内
-    private bool IsPointInBoundsXZ(Vector3 point, Bounds bounds)
+    private bool IsPointInBoundsXZ(Vector3 point, Rect bounds)
     {
-        return point.x >= bounds.min.x && point.x <= bounds.max.x &&
-               point.z >= bounds.min.z && point.z <= bounds.max.z;
+        return point.x >= bounds.xMin && point.x <= bounds.xMax &&
+               point.z >= bounds.yMin && point.z <= bounds.yMax;
     }
 
     // 检查两个边界在XZ平面上是否有重叠
-    private bool DoBoundsOverlapXZ(Bounds bounds1, Bounds bounds2)
+    private bool DoBoundsOverlapXZ(Rect bounds1, Rect bounds2)
     {
-        return !(bounds1.max.x < bounds2.min.x || bounds1.min.x > bounds2.max.x ||
-                 bounds1.max.z < bounds2.min.z || bounds1.min.z > bounds2.max.z);
+        return !(bounds1.xMax < bounds2.xMin || bounds1.xMin > bounds2.xMax ||
+                 bounds1.yMax < bounds2.yMin || bounds1.yMin > bounds2.yMax);
     }
 
     private Vector3 ClampPositionWithinBounds(Vector3 position)
