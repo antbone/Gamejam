@@ -1,0 +1,29 @@
+{
+    "10001": {
+        "id": 10001,
+        "chineseName": "向日葵",
+        "englishName": "Sunflower",
+        "quality": 1,
+        "reward": 1,
+        "image": "",
+        "chineseDescription": "",
+        "englishDescription": "",
+        "effectDescription": "碰到豌豆射手+1",
+        "effect0": 101,
+        "arg0_0": [
+            1
+        ],
+        "arg0_1": [
+            10002
+        ],
+        "arg0_2": "",
+        "effect1": "",
+        "arg1_0": "",
+        "arg1_1": "",
+        "arg1_2": "",
+        "effec2": "",
+        "arg2_0": "",
+        "arg2_1": "",
+        "arg2_2": ""
+    }
+}

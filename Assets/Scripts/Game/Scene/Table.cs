@@ -221,9 +221,9 @@ public class Table : MonoBehaviour
         // 使用对象池创建卡牌，初始旋转角度在(90, 0, 0)附近
         Quaternion baseRotation = Quaternion.Euler(90, 0, 0);
         Quaternion randomRotation = Quaternion.Euler(
-            Random.Range(85f, 95f),  // X轴在90度附近±5度
-            Random.Range(-10f, 10f), // Y轴在0度附近±10度
-            Random.Range(-10f, 10f)  // Z轴在0度附近±10度
+            Random.Range(90f-75f, 95f+75f),  // X轴在90度附近±5度
+            Random.Range(-75f, 75f), // Y轴在0度附近±10度
+            Random.Range(-75f, 75f)  // Z轴在0度附近±10度
         );
 
         // 先创建卡牌但不设置位置和旋转

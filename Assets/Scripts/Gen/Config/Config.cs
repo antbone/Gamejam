@@ -6,6 +6,8 @@ namespace GameConfig
 {
     public static class Config
     {
+        public static BaseConfig<int, CardsConfigItem> CardsConfig { private set; get; }
+        public static BaseConfig<int, CardEffectsConfigItem> CardEffectsConfig { private set; get; }
         public static BaseConfig<int, CenterConfigItem> CenterConfig { private set; get; }
         public static BaseConfig<int, StoneConfigItem> StoneConfig { private set; get; }
         public static BaseConfig<int, ResConfigItem> ResConfig { private set; get; }
@@ -33,8 +35,30 @@ namespace GameConfig
             string section;
             string[] lines;
 
-            // CenterConfig
+            // CardsConfig
             section = sections[0];
+            lines = Regex.Split(section, "\r\n");
+            Dictionary<int, CardsConfigItem> cardsConfigData = new Dictionary<int, CardsConfigItem>();
+            for (int n = 0; n < lines.Length - 1; n += 22)
+            {
+                var item = new CardsConfigItem(ConfigUtility.ParseInt(lines[n]), ConfigUtility.ParseInt(lines[n + 1]), lines[n + 2], lines[n + 3], ConfigUtility.ParseInt(lines[n + 4]), ConfigUtility.ParseInt(lines[n + 5]), lines[n + 6], lines[n + 7], lines[n + 8], lines[n + 9], ConfigUtility.ParseInt(lines[n + 10]), ConfigUtility.ParseIntList(lines[n + 11]), ConfigUtility.ParseIntList(lines[n + 12]), ConfigUtility.ParseIntList(lines[n + 13]), ConfigUtility.ParseInt(lines[n + 14]), ConfigUtility.ParseIntList(lines[n + 15]), ConfigUtility.ParseIntList(lines[n + 16]), ConfigUtility.ParseIntList(lines[n + 17]), ConfigUtility.ParseInt(lines[n + 18]), ConfigUtility.ParseIntList(lines[n + 19]), ConfigUtility.ParseIntList(lines[n + 20]), ConfigUtility.ParseIntList(lines[n + 21]));
+                cardsConfigData[item.UniqueKey] = item;
+            }
+            CardsConfig = new BaseConfig<int, CardsConfigItem>("CardsConfig", cardsConfigData);
+
+            // CardEffectsConfig
+            section = sections[1];
+            lines = Regex.Split(section, "\r\n");
+            Dictionary<int, CardEffectsConfigItem> cardEffectsConfigData = new Dictionary<int, CardEffectsConfigItem>();
+            for (int n = 0; n < lines.Length - 1; n += 4)
+            {
+                var item = new CardEffectsConfigItem(ConfigUtility.ParseInt(lines[n]), ConfigUtility.ParseInt(lines[n + 1]), lines[n + 2], lines[n + 3]);
+                cardEffectsConfigData[item.UniqueKey] = item;
+            }
+            CardEffectsConfig = new BaseConfig<int, CardEffectsConfigItem>("CardEffectsConfig", cardEffectsConfigData);
+
+            // CenterConfig
+            section = sections[2];
             lines = Regex.Split(section, "\r\n");
             Dictionary<int, CenterConfigItem> centerConfigData = new Dictionary<int, CenterConfigItem>();
             for (int n = 0; n < lines.Length - 1; n += 8)
@@ -45,7 +69,7 @@ namespace GameConfig
             CenterConfig = new BaseConfig<int, CenterConfigItem>("CenterConfig", centerConfigData);
 
             // StoneConfig
-            section = sections[1];
+            section = sections[3];
             lines = Regex.Split(section, "\r\n");
             Dictionary<int, StoneConfigItem> stoneConfigData = new Dictionary<int, StoneConfigItem>();
             for (int n = 0; n < lines.Length - 1; n += 8)
@@ -56,7 +80,7 @@ namespace GameConfig
             StoneConfig = new BaseConfig<int, StoneConfigItem>("StoneConfig", stoneConfigData);
 
             // ResConfig
-            section = sections[2];
+            section = sections[4];
             lines = Regex.Split(section, "\r\n");
             Dictionary<int, ResConfigItem> resConfigData = new Dictionary<int, ResConfigItem>();
             for (int n = 0; n < lines.Length - 1; n += 8)
@@ -67,7 +91,7 @@ namespace GameConfig
             ResConfig = new BaseConfig<int, ResConfigItem>("ResConfig", resConfigData);
 
             // PickaxeConfig
-            section = sections[3];
+            section = sections[5];
             lines = Regex.Split(section, "\r\n");
             Dictionary<int, PickaxeConfigItem> pickaxeConfigData = new Dictionary<int, PickaxeConfigItem>();
             for (int n = 0; n < lines.Length - 1; n += 9)
@@ -78,7 +102,7 @@ namespace GameConfig
             PickaxeConfig = new BaseConfig<int, PickaxeConfigItem>("PickaxeConfig", pickaxeConfigData);
 
             // BackpackConfig
-            section = sections[4];
+            section = sections[6];
             lines = Regex.Split(section, "\r\n");
             Dictionary<int, BackpackConfigItem> backpackConfigData = new Dictionary<int, BackpackConfigItem>();
             for (int n = 0; n < lines.Length - 1; n += 7)
@@ -89,7 +113,7 @@ namespace GameConfig
             BackpackConfig = new BaseConfig<int, BackpackConfigItem>("BackpackConfig", backpackConfigData);
 
             // CraftConfig
-            section = sections[5];
+            section = sections[7];
             lines = Regex.Split(section, "\r\n");
             Dictionary<int, CraftConfigItem> craftConfigData = new Dictionary<int, CraftConfigItem>();
             for (int n = 0; n < lines.Length - 1; n += 9)
@@ -100,7 +124,7 @@ namespace GameConfig
             CraftConfig = new BaseConfig<int, CraftConfigItem>("CraftConfig", craftConfigData);
 
             // TerminalConfig
-            section = sections[6];
+            section = sections[8];
             lines = Regex.Split(section, "\r\n");
             Dictionary<int, TerminalConfigItem> terminalConfigData = new Dictionary<int, TerminalConfigItem>();
             for (int n = 0; n < lines.Length - 1; n += 5)
@@ -111,7 +135,7 @@ namespace GameConfig
             TerminalConfig = new BaseConfig<int, TerminalConfigItem>("TerminalConfig", terminalConfigData);
 
             // TorchConfig
-            section = sections[7];
+            section = sections[9];
             lines = Regex.Split(section, "\r\n");
             Dictionary<int, TorchConfigItem> torchConfigData = new Dictionary<int, TorchConfigItem>();
             for (int n = 0; n < lines.Length - 1; n += 5)
@@ -122,7 +146,7 @@ namespace GameConfig
             TorchConfig = new BaseConfig<int, TorchConfigItem>("TorchConfig", torchConfigData);
 
             // ItemConfig
-            section = sections[8];
+            section = sections[10];
             lines = Regex.Split(section, "\r\n");
             Dictionary<int, ItemConfigItem> itemConfigData = new Dictionary<int, ItemConfigItem>();
             for (int n = 0; n < lines.Length - 1; n += 8)

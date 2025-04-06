@@ -8,6 +8,201 @@
         ],
         "sheetType": "Enum"
     },
+    "CardsConfig": {
+        "fields": {
+            "id": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "ID"
+            },
+            "chineseName": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "中文名"
+            },
+            "englishName": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "英文名"
+            },
+            "quality": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "品质"
+            },
+            "reward": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "基础弹珠数"
+            },
+            "image": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "图片素材"
+            },
+            "chineseDescription": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "中文描述"
+            },
+            "englishDescription": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "英文描述"
+            },
+            "effectDescription": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "效果描述"
+            },
+            "effect0": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "效果0"
+            },
+            "arg0_0": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "参数0_0"
+            },
+            "arg0_1": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "参数0_1"
+            },
+            "arg0_2": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "参数0_2"
+            },
+            "effect1": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "效果1"
+            },
+            "arg1_0": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "参数1_0"
+            },
+            "arg1_1": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "参数1_1"
+            },
+            "arg1_2": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "参数1_2"
+            },
+            "effec2": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": "效果2"
+            },
+            "arg2_0": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "参数2_0"
+            },
+            "arg2_1": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "参数2_1"
+            },
+            "arg2_2": {
+                "type": "int[]",
+                "generate": [
+                    1
+                ],
+                "annotation": "参数2_2"
+            }
+        },
+        "filePath": "..\\docs\\卡牌表.xlsx",
+        "fileMD5": "87edd832bccfe7ce2755b934b6406376",
+        "sheetType": "Horizontal",
+        "isSingleMainKey": true,
+        "mainKeySubs": [
+            0
+        ],
+        "mainKeyNames": [
+            "id"
+        ]
+    },
+    "CardEffectsConfig": {
+        "fields": {
+            "id": {
+                "type": "int",
+                "generate": [
+                    1
+                ],
+                "annotation": 0
+            },
+            "name": {
+                "type": "string",
+                "generate": [
+                    1
+                ]
+            },
+            "effect": {
+                "type": "string",
+                "generate": [
+                    1
+                ],
+                "annotation": "固定数值"
+            }
+        },
+        "filePath": "..\\docs\\卡牌表.xlsx",
+        "fileMD5": "87edd832bccfe7ce2755b934b6406376",
+        "sheetType": "Horizontal",
+        "isSingleMainKey": true,
+        "mainKeySubs": [
+            0
+        ],
+        "mainKeyNames": [
+            "id"
+        ]
+    },
     "CenterConfig": {
         "fields": {
             "lv": {
