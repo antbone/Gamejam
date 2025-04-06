@@ -307,8 +307,8 @@ Transform:
   m_GameObject: {fileID: 409086416}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 3.19, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1746677180}
@@ -356,7 +356,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.71799433, g: 0.9622642, b: 0.51290494, a: 1}
+  m_Color: {r: 0.71799433, g: 0.9622642, b: 0.51290494, a: 0.31764707}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -545,11 +545,11 @@ MonoBehaviour:
   rd: {fileID: 1468494986}
   lu: {fileID: 2010811266}
   ru: {fileID: 175092363}
-  cardCircleRadius: 1.5
+  cardCircleRadius: 2
   cardCircle: {fileID: 409086418}
   cardCircleLight: {fileID: 1746677180}
   gradient: 30
-  height: 3.19
+  height: 4
   moveSpeedMul: 0.1
   cardFolder: {fileID: 642028431}
   cardPrefab: {fileID: 3605012694191209655, guid: 8573a449a2014da4395d87818c429e7a, type: 3}
@@ -800,7 +800,7 @@ Transform:
   m_GameObject: {fileID: 1746677179}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.00000007947286, z: -2.5980766}
+  m_LocalPosition: {x: 0, y: -0.00000011920929, z: -3.4641023}
   m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -817,11 +817,11 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.8396226, g: 0.18218225, b: 0.18218225, a: 1}
+  m_Color: {r: 0.28930807, g: 0.28930807, b: 0.28930807, a: 1}
   m_Intensity: 3.92
-  m_Range: 11.304118
+  m_Range: 13.757726
   m_SpotAngle: 60
-  m_InnerSpotAngle: 4.6
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
