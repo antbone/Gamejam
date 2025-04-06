@@ -3,7 +3,18 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class CardPhysicsController : MonoBehaviour
 {
+    // 卡牌状态枚举
+    public enum CardState
+    {
+        Normal,     // 普通状态
+        Linked,     // 联动状态
+        Covered,    // 覆盖状态
+        Active      // 启用状态
+    }
+
     private Rigidbody rb;
+    private MeshRenderer meshRenderer;
+    public CardState currentState = CardState.Normal;
     private bool hasHitGround = false;
     private const float DAMPING = 0.9f; // 碰撞后的速度衰减系数
     private const float SETTLE_TIME = 2.0f; // 卡牌稳定后等待回收的时间
@@ -44,6 +55,7 @@ public class CardPhysicsController : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        meshRenderer = GetComponent<MeshRenderer>();
         SetupPhysicsMaterial();
         // 为每个卡牌生成唯一的计时器ID
         settleTimerId = this.Hash("SettleTimer");
@@ -138,6 +150,8 @@ public class CardPhysicsController : MonoBehaviour
         {
             collider.material = cardMaterial;
         }
+
+        // 注意：不重置currentState，保持卡牌状态不变
     }
 
     void Update()
@@ -368,5 +382,54 @@ public class CardPhysicsController : MonoBehaviour
 
         // 清除计时器
         TM.SetEnd(settleTimerId);
+    }
+
+    public void SetMaterial(Material material)
+    {
+        if (meshRenderer != null && material != null)
+        {
+            meshRenderer.material = material;
+        }
+    }
+
+    public void SetState(CardState state)
+    {
+        if (currentState != state)
+        {
+            currentState = state;
+            // 状态变化时立即更新材质
+            UpdateMaterialByState();
+        }
+    }
+
+    // 初始化卡牌状态
+    public void InitializeState()
+    {
+        // 设置初始状态为Active
+        currentState = CardState.Active;
+        // 立即更新材质
+        UpdateMaterialByState();
+    }
+
+    private void UpdateMaterialByState()
+    {
+        if (table == null) return;
+
+        switch (currentState)
+        {
+            case CardState.Linked:
+                SetMaterial(table.activeMaterial);
+                Debug.Log("Linked");
+                break;
+            case CardState.Covered:
+                SetMaterial(table.darkMaterial);
+                break;
+            case CardState.Active:
+                SetMaterial(table.lightMaterial);
+                break;
+            default:
+                SetMaterial(table.darkMaterial);
+                break;
+        }
     }
 }

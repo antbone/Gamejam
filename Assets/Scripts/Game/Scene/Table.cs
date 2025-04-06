@@ -18,6 +18,9 @@ public class Table : MonoBehaviour
     private Vector2 movementBounds;
     public Transform cardFolder;
     public GameObject cardPrefab;
+    public Material darkMaterial;
+    public Material lightMaterial;
+    public Material activeMaterial;
     private float cardSpawnTimer = 0;
     private const float SPAWN_INTERVAL = 0.2f;
     public Transform deadHeight;
@@ -189,12 +192,11 @@ public class Table : MonoBehaviour
         isTransitioning = true;
         Debug.Log("所有卡牌已稳定，3秒后进入结果阶段");
 
-        // 回收所有还存留的卡牌
-        RecycleAllCards();
-
         // 使用TM.SetTimer替代协程
         TM.SetTimer(this.Hash("TransitionToResult"), TRANSITION_DELAY, null, (s) =>
         {
+            // 回收所有还存留的卡牌
+            RecycleAllCards();
             // 进入结果阶段
             GameFlowManager.Instance.TransitionTo(GameState.Result);
         });
@@ -254,6 +256,9 @@ public class Table : MonoBehaviour
 
         // 重置物理控制器状态
         physicsController.ResetState();
+
+        // 初始化卡牌状态
+        physicsController.InitializeState();
 
         // 计算聚光灯在桌面上的投影范围
         float projectionRadius = GetLightProjectionRadius();
@@ -331,11 +336,196 @@ public class Table : MonoBehaviour
             cardSpawnTimer = SPAWN_INTERVAL; // 确保松开后立即可以生成
         }
 
+        // 检查所有已生成卡牌的状态（不仅仅是稳定的卡牌）
+        foreach (var card in allSpawnedCards)
+        {
+            if (card != null && !cardsBelowDeadHeight.Contains(card))
+            {
+                UpdateCardState(card);
+            }
+        }
+
         // 检查所有卡牌是否都已稳定
         if (allCardsSpawned && !allCardsSettled && !isTransitioning)
         {
             CheckAllCardsSettled();
         }
+    }
+
+    // 更新卡牌状态
+    private void UpdateCardState(CardPhysicsController card)
+    {
+        if (card == null) return;
+
+        // 获取卡牌的9个关键点
+        Transform[] keyPoints = GetCardKeyPoints(card);
+        if (keyPoints == null || keyPoints.Length != 9) return;
+
+        // 检查卡牌是否被覆盖
+        bool isCovered = IsCardCovered(card, keyPoints);
+        if (isCovered)
+        {
+            card.SetState(CardPhysicsController.CardState.Covered);
+            return;
+        }
+
+        // 检查卡牌是否与其他卡牌联动
+        bool isLinked = IsCardLinked(card);
+        if (isLinked)
+        {
+            card.SetState(CardPhysicsController.CardState.Linked);
+            return;
+        }
+
+        // 如果既没有被覆盖也没有联动，则为启用状态
+        card.SetState(CardPhysicsController.CardState.Active);
+    }
+
+    // 获取卡牌的9个关键点
+    private Transform[] GetCardKeyPoints(CardPhysicsController card)
+    {
+        Transform[] keyPoints = new Transform[9];
+        Transform cardTransform = card.transform;
+
+        // 查找卡牌上的9个子物体
+        for (int i = 0; i < cardTransform.childCount; i++)
+        {
+            Transform child = cardTransform.GetChild(i);
+            string childName = child.name.ToLower();
+
+            if (childName == "lu") keyPoints[0] = child;
+            else if (childName == "lc") keyPoints[1] = child;
+            else if (childName == "ld") keyPoints[2] = child;
+            else if (childName == "mu") keyPoints[3] = child;
+            else if (childName == "mc") keyPoints[4] = child;
+            else if (childName == "md") keyPoints[5] = child;
+            else if (childName == "ru") keyPoints[6] = child;
+            else if (childName == "rc") keyPoints[7] = child;
+            else if (childName == "rd") keyPoints[8] = child;
+        }
+
+        // 检查是否所有点都找到了
+        for (int i = 0; i < 9; i++)
+        {
+            if (keyPoints[i] == null)
+            {
+                Debug.LogWarning($"卡牌 {card.name} 缺少关键点 {i}");
+                return null;
+            }
+        }
+
+        return keyPoints;
+    }
+
+    // 检查卡牌是否被覆盖
+    private bool IsCardCovered(CardPhysicsController card, Transform[] keyPoints)
+    {
+        if (keyPoints == null || keyPoints.Length != 9) return false;
+
+        // 检查每个关键点上方是否有其他卡牌
+        int coveredPoints = 0;
+        foreach (Transform point in keyPoints)
+        {
+            // 在XZ平面上获取点的位置
+            Vector3 pointPos = new Vector3(point.position.x, 0, point.position.z);
+
+            // 检查是否有其他卡牌在这个点的上方
+            bool hasCardAbove = false;
+            foreach (var otherCard in settledCards)
+            {
+                if (otherCard == card) continue;
+
+                // 获取其他卡牌的边界
+                Bounds otherBounds = GetCardBounds(otherCard);
+
+                // 检查点是否在其他卡牌的XZ投影范围内
+                if (IsPointInBoundsXZ(pointPos, otherBounds))
+                {
+                    // 检查点的高度是否低于其他卡牌
+                    if (point.position.y < otherBounds.max.y)
+                    {
+                        hasCardAbove = true;
+                        break;
+                    }
+                }
+            }
+
+            if (hasCardAbove)
+            {
+                coveredPoints++;
+            }
+        }
+
+        // 如果所有点都被覆盖，则卡牌被覆盖
+        return coveredPoints == 9;
+    }
+
+    // 检查卡牌是否与其他卡牌联动
+    private bool IsCardLinked(CardPhysicsController card)
+    {
+        if (card == null) return false;
+
+        // 获取卡牌的边界
+        Bounds cardBounds = GetCardBounds(card);
+
+        // 检查是否与其他卡牌在XZ平面上有重叠
+        foreach (var otherCard in settledCards)
+        {
+            if (otherCard == card) continue;
+
+            // 获取其他卡牌的边界
+            Bounds otherBounds = GetCardBounds(otherCard);
+
+            // 检查两个卡牌在XZ平面上是否有重叠
+            if (DoBoundsOverlapXZ(cardBounds, otherBounds))
+            {
+                // 检查当前卡牌是否被覆盖
+                Transform[] currentKeyPoints = GetCardKeyPoints(card);
+                bool isCurrentCardCovered = IsCardCovered(card, currentKeyPoints);
+
+                // 检查其他卡牌是否被覆盖
+                Transform[] otherKeyPoints = GetCardKeyPoints(otherCard);
+                bool isOtherCardCovered = IsCardCovered(otherCard, otherKeyPoints);
+
+                // 只有当两个卡牌都没有被覆盖时，才认为它们联动
+                if (!isCurrentCardCovered && !isOtherCardCovered)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    // 获取卡牌的边界
+    private Bounds GetCardBounds(CardPhysicsController card)
+    {
+        if (card == null) return new Bounds();
+
+        // 获取卡牌的碰撞器
+        Collider collider = card.GetComponent<Collider>();
+        if (collider != null)
+        {
+            return collider.bounds;
+        }
+
+        // 如果没有碰撞器，使用卡牌的尺寸估计边界
+        return new Bounds(card.transform.position, new Vector3(0.6f, 0.9f, 0.05f));
+    }
+
+    // 检查点是否在边界的XZ投影范围内
+    private bool IsPointInBoundsXZ(Vector3 point, Bounds bounds)
+    {
+        return point.x >= bounds.min.x && point.x <= bounds.max.x &&
+               point.z >= bounds.min.z && point.z <= bounds.max.z;
+    }
+
+    // 检查两个边界在XZ平面上是否有重叠
+    private bool DoBoundsOverlapXZ(Bounds bounds1, Bounds bounds2)
+    {
+        return !(bounds1.max.x < bounds2.min.x || bounds1.min.x > bounds2.max.x ||
+                 bounds1.max.z < bounds2.min.z || bounds1.min.z > bounds2.max.z);
     }
 
     private Vector3 ClampPositionWithinBounds(Vector3 position)

@@ -553,6 +553,9 @@ MonoBehaviour:
   moveSpeedMul: 0.1
   cardFolder: {fileID: 642028431}
   cardPrefab: {fileID: 3605012694191209655, guid: 8573a449a2014da4395d87818c429e7a, type: 3}
+  darkMaterial: {fileID: 0}
+  lightMaterial: {fileID: 0}
+  activeMaterial: {fileID: 0}
   deadHeight: {fileID: 1204078517}
   torque: 0.1
 --- !u!1 &876178019
