@@ -48,10 +48,19 @@ public class CardSelectionPhase : BaseGamePhase
         });
     }
 
-    private int CardProbability()
+    private int CardProbability()//暂时使用随机抽卡
     {
-        int probability = Random.Range(10001, 10004);
+        List<int> ignoreValueList = new List<int>() { 10006, 10018, 10019, 10021, 10022, 10030, 10047, 10056 };
 
+        int probability = Random.Range(10001, 10051);
+
+        Debug.Log("probability = " + probability);
+
+        if (ignoreValueList.Contains(probability))
+        {
+            Debug.Log("Ignore: " + probability);
+            CardProbability();
+        }
 
         return probability;
     }

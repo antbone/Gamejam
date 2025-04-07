@@ -45,7 +45,7 @@ public class GameFlowManager : IGameFlow
 
     public void StartGame()
     {
-        //CurrentStage = 1;
+        CurrentStage = 1;
         CurrentRound = 1;
         IsGameOver = false;
         TransitionTo(GameState.Story);
@@ -76,8 +76,15 @@ public class GameFlowManager : IGameFlow
         {
             if (CurrentRound >= MAX_ROUNDS)
             {
+                if(CurrentStage >= MAX_STAGE)
+                {
+                    EndGame();
+                }
+                else
+                {
+                    CurrentStage++;
+                }
                 EndGame();
-                //CurrentStage++;
             }
             else
             {

@@ -11,21 +11,18 @@ public class CardSelectModel : VMInventory<CardSelectModel>
     public VMAdapter<int, Sprite> card1Image = new VMAdapter<int, Sprite>(
         (id) =>
         {
-            Debug.Log(Config.CardsConfig.Get(id));
             return Resources.Load<Sprite>("Images/cards/" + Config.CardsConfig.Get(id).Image);
         }
     );
     public VMAdapter<int, Sprite> card2Image = new VMAdapter<int, Sprite>(
         (id) =>
         {
-            Debug.Log(Config.CardsConfig.Get(id));
             return Resources.Load<Sprite>("Images/cards/" + Config.CardsConfig.Get(id).Image);
         }
     );
     public VMAdapter<int, Sprite> card3Image = new VMAdapter<int, Sprite>(
         (id) =>
         {
-            Debug.Log(Config.CardsConfig.Get(id));
             return Resources.Load<Sprite>("Images/cards/" + Config.CardsConfig.Get(id).Image);
         }
     );
