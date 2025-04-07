@@ -14,7 +14,7 @@ public class GameManager : Singleton<GameManager>
 
     public void OnStart()
     {
-        // 启动游戏流程
+        // 启动游戏流程 
         GameFlowManager.Instance.StartGame();
     }
 

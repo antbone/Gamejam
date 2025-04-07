@@ -558,6 +558,7 @@ MonoBehaviour:
   activeMaterial: {fileID: 0}
   deadHeight: {fileID: 1204078517}
   torque: 0.1
+  allSpawnedCards: []
 --- !u!1 &876178019
 GameObject:
   m_ObjectHideFlags: 0

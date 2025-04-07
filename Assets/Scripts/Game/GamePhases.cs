@@ -20,6 +20,7 @@ public class StoryPhase : BaseGamePhase
         {
             GameFlowManager.Instance.TransitionTo(GameState.CardSelection);
             VController.Ins.HideST(id);
+            VController.Ins.ShowST("GameUIPanel");
         });
     }
 }
@@ -28,10 +29,10 @@ public class CardSelectionPhase : BaseGamePhase
 {
     public override void Enter()
     {
+
         CardSelectModel.Ins.card1.D = CardProbability();
         CardSelectModel.Ins.card2.D = CardProbability();
         CardSelectModel.Ins.card3.D = CardProbability();
-        Debug.Log(CardSelectModel.Ins.card1);
 
         int id = VController.Ins.ShowST("SelectCardPanel");
         VPanel panel = VController.Ins.GetSTUI(id);
@@ -40,6 +41,7 @@ public class CardSelectionPhase : BaseGamePhase
             if (success)
             {
                 CardInventory.Ins.cards.Add(11);
+
                 GameFlowManager.Instance.TransitionTo(GameState.Game);
                 VController.Ins.HideST(id);
             }
