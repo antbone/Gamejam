@@ -134,6 +134,71 @@ public class CardController : MonoBehaviour
                     }
                 }
                 break;
+            case 104: // 临接销毁成长
+                // 基础分累加
+                nowScore += cardData.score;
+
+                // 获取相邻卡牌（已添加空安全校验）
+                if (physicsController == null) return nowScore;
+
+                var adjacentCards104 = physicsController.GetAdjacentCards();
+                if (adjacentCards104 == null) return nowScore;
+                
+                // 遍历相邻卡牌
+                foreach (var card in adjacentCards104)
+                {
+                    var controller = card?.GetComponent<CardController>();
+                    if (controller == null || controller.cardData == null) continue;
+                    
+                    // 类型匹配时应用效果（带类型安全检查）
+                    if ((int)controller.cardData.cardType == cardData.效果[1])
+                    {
+                        // 增加分数（基础分 + 成长值）
+                        nowScore += cardData.效果[0] + controller.cardData.score;
+                        // 销毁卡牌对象
+                        Destroy(card.gameObject);
+                    }
+                }
+                break;
+            case 105: // 临接销毁生成
+                // 基础分累加
+                nowScore += cardData.score;
+
+                // 获取相邻卡牌（已添加空安全校验）
+                if (physicsController == null) return nowScore;
+
+                var adjacentCards105 = physicsController.GetAdjacentCards();
+                if (adjacentCards105 == null) return nowScore;
+                
+                // 遍历相邻卡牌
+                foreach (var card in adjacentCards105)
+                {
+                    var controller = card?.GetComponent<CardController>();
+                    if (controller == null || controller.cardData == null) continue;
+                    
+                    // 类型匹配时应用效果（带类型安全检查）
+                    if ((int)controller.cardData.cardType == cardData.效果[1])
+                    {
+                        // 增加基础分数
+                        nowScore += cardData.效果[0];
+                        
+                        // 生成新卡牌
+                        if (cardData.效果.Count >= 3)
+                        {
+                            // 在卡牌位置生成新卡牌
+                            Vector3 spawnPosition = card.transform.position;
+                            Quaternion spawnRotation = card.transform.rotation;
+                            
+                            // 销毁原卡牌
+                            Destroy(card.gameObject);
+                            
+                            // 生成新卡牌（这里需要实现生成新卡牌的逻辑）
+                            // TODO: 实现生成新卡牌的具体逻辑
+                            // 可能需要调用Table或其他管理类的方法来生成新卡牌
+                        }
+                    }
+                }
+                break;
         }
         return nowScore;
         // 计算特殊卡牌的分数
