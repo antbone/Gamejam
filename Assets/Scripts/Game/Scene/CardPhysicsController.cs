@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CardPhysicsController : MonoBehaviour
@@ -41,6 +42,35 @@ public class CardPhysicsController : MonoBehaviour
     private const float CARD_FRICTION = 0.1f; // 与卡牌接触时的摩擦力
     private bool isTouchingTable = false; // 是否接触桌面
     private bool isTouchingCard = false; // 是否接触其他卡牌
+
+    // 相邻卡牌列表
+    private List<CardPhysicsController> adjacentCards = new List<CardPhysicsController>();
+
+    // 获取相邻卡牌列表
+    public List<CardPhysicsController> GetAdjacentCards()
+    {
+        return new List<CardPhysicsController>(adjacentCards);
+    }
+
+    // 添加相邻卡牌
+    private void AddAdjacentCard(CardPhysicsController card)
+    {
+        if (card != null && !adjacentCards.Contains(card))
+        {
+            adjacentCards.Add(card);
+            Debug.Log($"卡牌 {gameObject.name} 与卡牌 {card.gameObject.name} 接触");
+        }
+    }
+
+    // 移除相邻卡牌
+    private void RemoveAdjacentCard(CardPhysicsController card)
+    {
+        if (card != null && adjacentCards.Contains(card))
+        {
+            adjacentCards.Remove(card);
+            Debug.Log($"卡牌 {gameObject.name} 与卡牌 {card.gameObject.name} 分离");
+        }
+    }
 
     public static void SetDeadHeight(Transform height)
     {
@@ -345,6 +375,8 @@ public class CardPhysicsController : MonoBehaviour
         else if (collision.gameObject.GetComponent<CardPhysicsController>() != null)
         {
             isTouchingCard = true;
+            CardPhysicsController otherCard = collision.gameObject.GetComponent<CardPhysicsController>();
+            AddAdjacentCard(otherCard);
         }
     }
 
@@ -369,6 +401,8 @@ public class CardPhysicsController : MonoBehaviour
         else if (collision.gameObject.GetComponent<CardPhysicsController>() != null)
         {
             isTouchingCard = false;
+            CardPhysicsController otherCard = collision.gameObject.GetComponent<CardPhysicsController>();
+            RemoveAdjacentCard(otherCard);
         }
     }
 
@@ -382,6 +416,16 @@ public class CardPhysicsController : MonoBehaviour
 
         // 清除计时器
         TM.SetEnd(settleTimerId);
+
+        // 通知所有相邻卡牌移除自己
+        foreach (var card in adjacentCards.ToArray())
+        {
+            if (card != null)
+            {
+                card.RemoveAdjacentCard(this);
+            }
+        }
+        adjacentCards.Clear();
     }
 
     public void SetMaterial(Material material)

@@ -11,8 +11,10 @@ public class CardData : ScriptableObject
     public string cardName;
     [TextArea] public string cardDescription;
     public int cardQuality;
-    public int reward;
+    public int score;
 
     [Header("Type Info")]
     public CardType cardType;
+    public CardRarity cardRarity;
+    public List<int> Ð§¹û;
 }
